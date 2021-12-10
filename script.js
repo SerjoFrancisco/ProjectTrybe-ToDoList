@@ -3,6 +3,7 @@ const form = document.getElementById('texto-tarefa');
 const list = document.getElementById('lista-tarefas');
 const task = document.getElementsByTagName('li');
 const cleaner = document.getElementById('apaga-tudo');
+const cleanF = document.getElementById('remover-finalizados');
 
 function selectTask(event) {
 //   if (event.target.classList.contains('selected')) {
@@ -35,5 +36,13 @@ function getTask() {
 function cleanList() {
   list.innerHTML = 'To-do List';
 }
+function cleanComplete() {
+  for (let i = 0; i < task.length; i += 1) {
+    if (task[i].classList.contains('completed')) {
+      task[i].remove();
+    }
+  }
+}
+cleanF.addEventListener('click', cleanComplete);
 button.addEventListener('click', getTask);
 cleaner.addEventListener('click', cleanList);
