@@ -12,18 +12,18 @@ function selectTask(event) {
     task[i].classList.remove('selected');
   }
   event.target.classList.add('selected');
-};
+}
 // }
 
 function doneTask(event) {
   event.target.classList.toggle('completed');
-};
+}
 function listenAllTask() {
   for (let i = 0; i < task.length; i += 1) {
     task[i].addEventListener('click', selectTask);
     task[i].addEventListener('dblclick', doneTask);
   }
-};
+}
 function getTask() {
   const newTask = document.createElement('li');
   newTask.className = 'tarefa';
@@ -31,9 +31,9 @@ function getTask() {
   newTask.innerText = form.value;
   form.value = '';
   listenAllTask();
-};
-function cleanList (){
-    list.innerHTML = ''
+}
+function cleanList() {
+  list.innerHTML = 'To-do List';
 }
 button.addEventListener('click', getTask);
-cleaner.addEventListener('click', cleanList)
+cleaner.addEventListener('click', cleanList);
