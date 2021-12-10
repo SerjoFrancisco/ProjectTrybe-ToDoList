@@ -2,6 +2,8 @@ const button = document.getElementById('criar-tarefa');
 const form = document.getElementById('texto-tarefa');
 const list = document.getElementById('lista-tarefas');
 const task = document.getElementsByTagName('li');
+const cleaner = document.getElementById('apaga-tudo');
+
 function selectTask(event) {
 //   if (event.target.classList.contains('selected')) {
 //     event.target.classList.toggle('selected');
@@ -10,18 +12,18 @@ function selectTask(event) {
     task[i].classList.remove('selected');
   }
   event.target.classList.add('selected');
-}
+};
 // }
 
 function doneTask(event) {
   event.target.classList.toggle('completed');
-}
+};
 function listenAllTask() {
   for (let i = 0; i < task.length; i += 1) {
     task[i].addEventListener('click', selectTask);
     task[i].addEventListener('dblclick', doneTask);
   }
-}
+};
 function getTask() {
   const newTask = document.createElement('li');
   newTask.className = 'tarefa';
@@ -29,5 +31,9 @@ function getTask() {
   newTask.innerText = form.value;
   form.value = '';
   listenAllTask();
+};
+function cleanList (){
+    list.innerHTML = ''
 }
 button.addEventListener('click', getTask);
+cleaner.addEventListener('click', cleanList)
