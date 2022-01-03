@@ -4,7 +4,7 @@ const list = document.getElementById('lista-tarefas');
 const task = document.getElementsByTagName('li');
 const cleaner = document.getElementById('apaga-tudo');
 const cleanF = document.getElementById('remover-finalizados');
-
+const saver = document.getElementById('salvar-tarefas');
 function selectTask(event) {
 //   if (event.target.classList.contains('selected')) {
 //     event.target.classList.toggle('selected');
@@ -43,6 +43,16 @@ function cleanComplete() {
     }
   }
 }
+function saveList (){
+  let saved = list.innerHTML;
+  localStorage.setItem('lista', saved);
+}
+function showSaved(){
+  let myList = localStorage.getItem('lista');
+  list.innerHTML = myList;
+}
+showSaved();
+saver.addEventListener('click', saveList);
 cleanF.addEventListener('click', cleanComplete);
 button.addEventListener('click', getTask);
 cleaner.addEventListener('click', cleanList);
