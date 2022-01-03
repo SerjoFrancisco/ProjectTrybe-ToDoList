@@ -5,6 +5,8 @@ const task = document.getElementsByTagName('li');
 const cleaner = document.getElementById('apaga-tudo');
 const cleanF = document.getElementById('remover-finalizados');
 const saver = document.getElementById('salvar-tarefas');
+const rmSelect = document.getElementById('remover-selecionado');
+
 function selectTask(event) {
 //   if (event.target.classList.contains('selected')) {
 //     event.target.classList.toggle('selected');
@@ -52,6 +54,11 @@ function showSaved(){
   list.innerHTML = myList;
 }
 showSaved();
+function removeSelected(){
+  let selected = document.getElementsByClassName('selected');
+  selected[0].remove();
+}
+rmSelect.addEventListener('click', removeSelected);
 saver.addEventListener('click', saveList);
 cleanF.addEventListener('click', cleanComplete);
 button.addEventListener('click', getTask);
