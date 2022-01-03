@@ -64,10 +64,8 @@ function mvUp() {
   if (selected === null) {
     alert('nada selecionado');
   }
-  if (selected !== null) {
-    if (selected.previousElementSibling !== null) {
-      list.insertBefore(selected, selected.previousElementSibling);
-    }
+  if (selected !== null && selected.previousElementSibling !== null) {
+    list.insertBefore(selected, selected.previousElementSibling);
   }
 }
 function mvDown() {
@@ -75,11 +73,9 @@ function mvDown() {
   if (selected === null) {
     alert('nada selecionado');
   }
-  if (selected !== null) {
+  if (selected !== null && selected.nextElementSibling !== null) {
     const next = selected.nextElementSibling;
-    if (selected.nextElementSibling !== null) {
-      list.insertBefore(selected, next.nextSibling);
-    }
+    list.insertBefore(selected, next.nextSibling);
   }
 }
 moveUp.addEventListener('click', mvUp);
