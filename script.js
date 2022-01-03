@@ -6,7 +6,8 @@ const cleaner = document.getElementById('apaga-tudo');
 const cleanF = document.getElementById('remover-finalizados');
 const saver = document.getElementById('salvar-tarefas');
 const rmSelect = document.getElementById('remover-selecionado');
-
+const moveDown = document.getElementById('mover-baixo');
+const moveUp = document.getElementById('mover-cima');
 function selectTask(event) {
 //   if (event.target.classList.contains('selected')) {
 //     event.target.classList.toggle('selected');
@@ -39,25 +40,35 @@ function cleanList() {
   list.innerHTML = 'To-do List';
 }
 function cleanComplete() {
-  for (let i = 0; i < task.length; i += 1) {
+  for (let i = task.length - 1; i >= 0; i -= 1) {
     if (task[i].classList.contains('completed')) {
       task[i].remove();
     }
   }
 }
-function saveList (){
-  let saved = list.innerHTML;
+function saveList() {
+  const saved = list.innerHTML;
   localStorage.setItem('lista', saved);
 }
-function showSaved(){
-  let myList = localStorage.getItem('lista');
+function showSaved() {
+  const myList = localStorage.getItem('lista');
   list.innerHTML = myList;
 }
 showSaved();
-function removeSelected(){
-  let selected = document.getElementsByClassName('selected');
+function removeSelected() {
+  const selected = document.getElementsByClassName('selected');
   selected[0].remove();
 }
+function move() {
+  for (let i = 0; i < task.length; i += 1) {
+    if (task[i].classList.contains('selected')) {
+      
+    }
+    
+  }
+  
+}
+moveUp.addEventListener('click', move);
 rmSelect.addEventListener('click', removeSelected);
 saver.addEventListener('click', saveList);
 cleanF.addEventListener('click', cleanComplete);
