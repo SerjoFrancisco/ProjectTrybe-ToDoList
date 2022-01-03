@@ -59,16 +59,21 @@ function removeSelected() {
   const selected = document.getElementsByClassName('selected');
   selected[0].remove();
 }
-function move() {
-  for (let i = 0; i < task.length; i += 1) {
-    if (task[i].classList.contains('selected')) {
-      
-    }
-    
+function mvUp() {
+  const selected = document.querySelector('.selected');
+  if (selected.previousElementSibling !== null) {
+    list.insertBefore(selected, selected.previousElementSibling);
   }
-  
 }
-moveUp.addEventListener('click', move);
+function mvDown() {
+  const selected = document.querySelector('.selected');
+  const teste = selected.nextElementSibling
+  if (selected.nextElementSibling !== null) {
+    list.insertBefore(selected, teste.nextSibling);
+  }
+}
+moveUp.addEventListener('click', mvUp);
+moveDown.addEventListener('click', mvDown);
 rmSelect.addEventListener('click', removeSelected);
 saver.addEventListener('click', saveList);
 cleanF.addEventListener('click', cleanComplete);
