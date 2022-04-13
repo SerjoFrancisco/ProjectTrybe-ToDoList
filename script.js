@@ -78,6 +78,7 @@ function mvDown() {
     list.insertBefore(selected, next.nextSibling);
   }
 }
+
 moveUp.addEventListener('click', mvUp);
 moveDown.addEventListener('click', mvDown);
 rmSelect.addEventListener('click', removeSelected);
